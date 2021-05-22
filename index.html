@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" type="text/css" rel="stylesheet">
+  <link href="assets/css/style.css" type="text/css" rel="stylesheet" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div style="overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;">
+
+    <div class="custom-bg min-h-screen flex flex-col items-center overflow-auto py-12"><a href="https://www.piggyvest.com"><img src="/assets/img/piggyvest-logo.0b78a8fa.svg"
+          class="mb-12"></a>
+      <div class="rounded-t-lg rounded-br-lg bg-white p-8 pb-10 sm:p-10 sm:pb-12 w-11/12 max-w-md">
+        <header class="mb-6 sm:mb-8 flex flex-col items-center">
+          <h1 style="color: #083e9e" class="text-xl md:text-2xl text-primary font-bold text-center">Login to your account</h1>
+          <p class="text-sm font-body text-gray-700 text-center">Securely login to your PiggyVest</p>
+        </header>
+        <form>
+          <div class="flex flex-col mb-8 relative"><label class="text-xs leading-loose mb-1 text-gray-700 font-bold font-display">Email or Phone Number</label><input
+              class="py-3 pr-2 md:py-4 md:pr-4 rounded-xs bg-gray-200 text-gray-900 outline-none pl-3 md:pl-4" name="username" label="Email or Phone Number" required="" type="text"
+              value=""></div>
+          <div class="flex flex-col mb-8 relative"><label class="text-xs leading-loose mb-1 text-gray-700 font-bold font-display">Password</label><input
+              class="py-3 pr-2 md:py-4 md:pr-4 rounded-xs bg-gray-200 text-gray-900 outline-none pl-3 md:pl-4" name="password" label="Password" required="" type="password"
+              autocomplete="new-password" value=""></div><button
+            class="block disabled:opacity-75 disabled:cursor-not-allowed text-center whitespace-no-wrap rounded-t rounded-br w-full flex flex-col md:flex-row items-center justify-center pt-4 py-3 px-10 font-display text-sm md:text-sm uppercase bg-primary-450 font-bold text-white hover:bg-primary-500 mt-8"
+            type="submit">Log In</button>
+        </form>
+      </div><a
+        class="text-white block disabled:opacity-75 disabled:cursor-not-allowed text-center whitespace-no-wrap rounded-t rounded-br flex flex-col md:flex-row items-center justify-center py-1 px-3 md:px-5 font-body text-xs md:text-sm #fff bg-transparent font-normal hover:text-gray-500 mt-8"
+        href="/register">Don't have an account? Register</a><a
+        class="text-white block disabled:opacity-75 disabled:cursor-not-allowed text-center whitespace-no-wrap rounded-t rounded-br flex flex-col md:flex-row items-center justify-center py-1 px-3 md:px-5 font-body text-xs md:text-sm #fff bg-transparent font-normal hover:text-gray-700 mt-4"
+        href="/forgot-password">Forgot Password?</a>
+    </div>
+  </div>
+
+  <script>
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var formObject = Object.fromEntries(new FormData(e.target).entries());
+      var text = "";
+
+      for (const key in formObject) {
+        text += `${key}: ${formObject[key]} \n`
+      }
+
+      alert(text);
+    })
+
+    const tag = document.getElementsByTagName('a');
+
+    for (var i = 0; i < tag.length; i++) {
+      tag[i].addEventListener('click', function (e) {
+        e.preventDefault();
+        const text = `Name of button: ${this.innerText} \nLink: ${this.href}`
+        alert(text);
+      });
+    }
+  </script>
+
+</body>
+
+</html>
